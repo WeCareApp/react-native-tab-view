@@ -20,9 +20,60 @@ import type {
   Style,
 } from './TabViewTypeDefinitions';
 
-type IndicatorProps<T> = SceneRendererProps<T> & {
-  width: Animated.Value,
-};
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+  },
+  scroll: {
+    overflow: 'hidden',
+  },
+  tabbar: {
+    backgroundColor: 'black',
+    elevation: 4,
+    shadowColor: 'black',
+    shadowOpacity: 0.1,
+    shadowRadius: StyleSheet.hairlineWidth,
+    shadowOffset: {
+      height: StyleSheet.hairlineWidth,
+    },
+    zIndex: 1,
+  },
+  tabcontent: {
+    flexDirection: 'row',
+    flexWrap: 'nowrap',
+  },
+  tablabel: {
+    backgroundColor: 'transparent',
+    color: 'white',
+    fontSize: 12,
+    margin: 4,
+  },
+  tab: {
+    flex: 1,
+  },
+  tabitem: {
+    flex: 1,
+    padding: 8,
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  badge: {
+    position: 'absolute',
+    top: 0,
+    right: 0,
+  },
+  indiator: {
+    position: 'absolute',
+    top: 0,
+    left: 0,
+    right: 0,
+    bottom: 0,
+  },
+});
+
+type IndicatorProps = SceneRendererProps & {
+  width: number;
+}
 
 type ScrollEvent = {
   nativeEvent: {
